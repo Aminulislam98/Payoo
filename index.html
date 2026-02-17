@@ -51,6 +51,7 @@
             <fieldset class="fieldset">
               <label class="label text-neutral font-bold">Mobile Number</label>
               <input
+                id="phoneNumber"
                 minlength="11"
                 maxlength="11"
                 type="text"
@@ -59,13 +60,17 @@
               />
               <label class="labeltext-neutral font-bold">4 Digit Pin</label>
               <input
+                id="pinDigit"
                 maxlength="4"
                 type="password"
                 class="input rounded-full bg-base-200 w-full"
                 placeholder="Enter 4 Digit Pin"
               />
               <div></div>
-              <button class="btn btn-neutral mt-4 rounded-full bg-primary">
+              <button
+                id="login-btn"
+                class="btn btn-neutral mt-4 rounded-full bg-primary"
+              >
                 Login
               </button>
             </fieldset>
@@ -73,5 +78,6 @@
         </div>
       </div>
     </section>
+    <script src="script/login.js"></script>
   </body>
 </html>
