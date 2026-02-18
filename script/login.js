@@ -7,7 +7,7 @@ loginButton.addEventListener("click", () => {
 
   if (phoneNumber.length === 11 && pinDigit.length === 4) {
     alert("Logged in Successfully");
-    window.location.assign("/homePage.html");
+    window.location.assign("homePage.html");
     phoneNumberInput.value = "";
     pinDigitInput.value = "";
     return;
