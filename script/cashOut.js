@@ -2,13 +2,10 @@ document.getElementById("withdraw-money").addEventListener("click", () => {
   let agentNumberInput = document.getElementById("agent-number");
   let agentNumber = agentNumberInput.value;
 
-  let currentAvailableBalance = document.getElementById("available-balance");
-  let availableValance = Number(currentAvailableBalance.innerText);
+  let availableValance = getCurrentBalance();
+  let amountNumber = amountInput();
 
-  let amountNumberInput = document.getElementById("amount-number");
-  let amountNumber = Number(amountNumberInput.value);
   let newBalance = availableValance - amountNumber;
-
   let pinNumberElement = document.getElementById("pinNumber-cashout");
   let pinNumber = pinNumberElement.value;
 
@@ -21,7 +18,7 @@ document.getElementById("withdraw-money").addEventListener("click", () => {
       return;
     } else {
       if (pinNumber === "1234") {
-        currentAvailableBalance.innerText = newBalance;
+        setBalance(newBalance);
         alert("CashOut Successful!");
         return;
       } else {
