@@ -9,6 +9,12 @@ document.getElementById("withdraw-money").addEventListener("click", () => {
   let pinNumberElement = document.getElementById("pinNumber-cashout");
   let pinNumber = pinNumberElement.value;
 
+  const time = new Date().toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+
   if (agentNumber.length != 11) {
     alert("Invalid agent Number");
     return;
@@ -19,6 +25,26 @@ document.getElementById("withdraw-money").addEventListener("click", () => {
     } else {
       if (pinNumber === "1234") {
         setBalance(newBalance);
+
+        let history = document.getElementById("transition-history");
+        let newHistoryElement = document.createElement("div");
+        newHistoryElement.innerHTML = `
+          <div
+            tabindex="0"
+            class="collapse collapse-open bg-base-100 border-base-300 border mb-2 "
+          >
+            <div class="collapse-title font-semibold text-red-600">
+              Cash Out
+            </div>
+            <div class="collapse-content text-sm">
+              Cash Out <span class="text-red-600 font-bold"> -$${amountNumber}</span> · Successful · ${new Date()}
+            </div>
+            <div class="text-right text-sm text-green-600 pr-5 pb-2">${time}</div>
+          </div>
+          `;
+
+        history.append(newHistoryElement);
+
         alert("CashOut Successful!");
         return;
       } else {

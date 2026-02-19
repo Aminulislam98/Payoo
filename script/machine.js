@@ -25,8 +25,10 @@ function getInputValue(value) {
 function showOnly(id) {
   let cashout = document.getElementById("cashOut-section");
   let addMoney = document.getElementById("add-money-section");
+  let transition = document.getElementById("transition-section");
   cashout.classList.add("hidden");
   addMoney.classList.add("hidden");
+  transition.classList.add("hidden");
 
   let selected = document.getElementById(id);
   selected.classList.remove("hidden");

@@ -112,6 +112,7 @@
           <p class="font-normal">Pay Bill</p>
         </div>
         <div
+          onclick="showOnly('transition-section')"
           class="btn btn-primary btn-soft gap-2 flex flex-col h-full py-5 px-3 rounded-[12px] border-1 border-gray-300"
         >
           <img src="assets/opt-6.png" alt="add Money button" />
@@ -224,6 +225,10 @@
             </fieldset>
           </div>
         </div>
+      </section>
+      <section id="transition-section" class="mt-[15px] hidden">
+        <h2 class="font-semibold text-[18px]">Transaction History</h2>
+        <div id="transition-history" class="mt-4"></div>
       </section>
     </main>
     <script src="script/addMoney.js"></script>
