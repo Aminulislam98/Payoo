@@ -21,6 +21,7 @@ document.getElementById("add-money").addEventListener("click", () => {
       return;
     } else {
       if (pin === "1234") {
+        setBalance(newBalance);
         let history = document.getElementById("transition-history");
         let newHistoryElement = document.createElement("div");
         newHistoryElement.innerHTML = `
