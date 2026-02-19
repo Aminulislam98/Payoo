@@ -27,10 +27,14 @@ function showOnly(id) {
   let addMoney = document.getElementById("add-money-section");
   let transition = document.getElementById("transition-section");
   let transfer = document.getElementById("transfer-money-section");
+  let getBonus = document.getElementById("get-bonus-section");
+  let billPayment = document.getElementById("pay-bill-section");
   cashout.classList.add("hidden");
   addMoney.classList.add("hidden");
   transition.classList.add("hidden");
   transfer.classList.add("hidden");
+  getBonus.classList.add("hidden");
+  billPayment.classList.add("hidden");
 
   let selected = document.getElementById(id);
   selected.classList.remove("hidden");
@@ -47,7 +51,7 @@ function showSuccessPopup(message) {
   // optional auto-close
   setTimeout(() => modal.close(), 10000);
 }
-// dialog modal;
+// dialog modal wrong;
 function showSuccessPopupWrong(message) {
   const modal = document.getElementById("my_modal_1");
   document.getElementById("success_title").innerText = "Declined";

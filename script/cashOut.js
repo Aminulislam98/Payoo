@@ -28,8 +28,8 @@ document.getElementById("withdraw-money").addEventListener("click", () => {
             tabindex="0"
             class="collapse collapse-open bg-base-100 border-base-300 border mb-2 "
           >
-            <div class="collapse-title font-semibold text-red-600">
-              Cash Out
+            <div class="collapse-title font-semibold flex">
+                 Cash Out <img class="w-6" src="assets/image.png" alt="" />
             </div>
             <div class="collapse-content text-sm">
               Cash Out <span class="text-red-600 font-bold"> -$${amountNumber}</span> · Successful · ${new Date()}

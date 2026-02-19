@@ -103,12 +103,14 @@
           <p class="font-normal">Transfer Money</p>
         </div>
         <div
+          onclick="showOnly('get-bonus-section')"
           class="btn btn-primary btn-soft gap-2 flex flex-col h-full py-5 px-3 rounded-[12px] border-1 border-gray-300"
         >
           <img src="assets/opt-4.png" alt="add Money button" />
           <p class="font-normal">Get Bonus</p>
         </div>
         <div
+          onclick="showOnly('pay-bill-section')"
           class="btn btn-primary btn-soft gap-2 flex flex-col h-full py-5 px-3 rounded-[12px] border-1 border-gray-300"
         >
           <img src="assets/opt-5.png" alt="add Money button" />
@@ -297,7 +299,7 @@
       </section>
 
       <!-- get bonus section -->
-      <section id="get-bonus-section" class="mt-[15px]">
+      <section id="get-bonus-section" class="mt-[15px] hidden">
         <h2 class="font-semibold text-[18px]">Get Bonus</h2>
         <div class="card bg-base-100 w-full shadow mx-auto rounded-[24px] mt-4">
           <div class="card-body rounded-full">
@@ -326,7 +328,7 @@
       </section>
 
       <!-- pay bill section -->
-      <section id="pay-bill-section" class="mt-[15px]">
+      <section id="pay-bill-section" class="mt-[15px] hidden">
         <h2 class="font-semibold text-[18px]">Pay Bill</h2>
         <div class="card bg-base-100 w-full shadow mx-auto rounded-[24px] mt-4">
           <div class="card-body rounded-full">
@@ -350,7 +352,6 @@
               >
               <input
                 id="biller-account-number"
-                minlength="11"
                 maxlength="11"
                 type="text"
                 class="input rounded-full bg-base-200 mb-3 w-full border-0"
@@ -377,7 +378,7 @@
               />
               <div></div>
               <button
-                id="add-money"
+                id="pay-bill"
                 class="btn btn-neutral mt-4 rounded-full bg-primary font-semibold text-5"
               >
                 Pay Now
@@ -409,5 +410,6 @@
     <script src="script/cashOut.js"></script>
     <script src="script/transferMoney.js"></script>
     <script src="script/getBouns.js"></script>
+    <script src="script/payBill.js"></script>
   </body>
 </html>

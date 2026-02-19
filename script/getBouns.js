@@ -22,8 +22,8 @@ document.getElementById("get-bonus").addEventListener("click", () => {
             tabindex="0"
             class="collapse collapse-open bg-base-100 border-base-300 border mb-2 "
           >
-            <div class="collapse-title font-semibold text-green-600">
-              Coupon Reward Credited
+            <div class="collapse-title font-semibold flex">
+                Coupon Reward Credited <img class="w-6" src="assets/image.png" alt="" />
             </div>
             <div class="collapse-content text-sm">
                <span class="text-yellow-600 font-semibold">🎉 Coupon unlocked!</span> You’ve received a <span class="text-green-600 font-bold">+$50</span> bonus in your account. Enjoy your day!

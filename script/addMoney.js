@@ -28,6 +28,9 @@ document.getElementById("add-money").addEventListener("click", () => {
             <div class="collapse-title font-semibold text-green-600">
               Money Added
             </div>
+            <div class="collapse-title font-semibold flex">
+              Money Added <img class="w-6" src="assets/image.png" alt="" />
+            </div>
             <div class="collapse-content text-sm">
               <span class="text-green-600 font-bold"> +$${addAmount}</span> Added Successfully from ${selectedBank} ••••${last4} · ${new Date()}
             </div>

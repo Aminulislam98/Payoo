@@ -37,8 +37,8 @@ document.getElementById("send-money-transfer").addEventListener("click", () => {
             tabindex="0"
             class="collapse collapse-open bg-base-100 border-base-300 border mb-2 "
           >
-            <div class="collapse-title font-semibold text-green-600">
-              Transfer Sent
+            <div class="collapse-title font-semibold flex">
+                Transfer Sent <img class="w-6" src="assets/image.png" alt="" />
             </div>
             <div class="collapse-content text-sm">
                Transfer successful.<span class="text-black font-bold"> $${amount}</span> has been sent to ${name} (****${last4}).
