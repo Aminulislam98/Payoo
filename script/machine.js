@@ -33,3 +33,13 @@ function showOnly(id) {
   let selected = document.getElementById(id);
   selected.classList.remove("hidden");
 }
+function showSuccessPopup(message) {
+  const modal = document.getElementById("my_modal_1");
+  document.getElementById("success_title").innerText = "Success";
+  document.getElementById("success_msg").innerText = message;
+
+  modal.showModal();
+
+  // optional auto-close
+  setTimeout(() => modal.close(), 10000);
+}

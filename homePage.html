@@ -231,6 +231,22 @@
         <div id="transition-history" class="mt-4"></div>
       </section>
     </main>
+    <!-- Success Modal -->
+    <dialog id="my_modal_1" class="modal w-11/12">
+      <div class="modal-box">
+        <h3 id="success_title" class="text-lg font-bold">Success!</h3>
+        <p id="success_msg" class="py-4">
+          Press ESC key or click the button below to close
+        </p>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
     <script src="script/addMoney.js"></script>
     <script src="script/machine.js"></script>
     <script src="script/cashOut.js"></script>

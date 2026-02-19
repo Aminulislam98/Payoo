@@ -11,6 +11,7 @@ document.getElementById("add-money").addEventListener("click", () => {
     minute: "2-digit",
     hour12: false,
   });
+  console.log(time);
   if (selectedBank === "Select Bank") {
     alert("Please select a bank method!");
     return;
@@ -38,9 +39,9 @@ document.getElementById("add-money").addEventListener("click", () => {
           `;
 
         history.append(newHistoryElement);
-
-        alert(`Money added from ${selectedBank} at ${new Date()}`);
-        setBalance(newBalance);
+        showSuccessPopup(
+          `Money added successfully. Please check Transactions for details.`,
+        );
         return;
       } else {
         alert("Wrong Pin! Try again.");

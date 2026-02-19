@@ -45,7 +45,9 @@ document.getElementById("withdraw-money").addEventListener("click", () => {
 
         history.append(newHistoryElement);
 
-        alert("CashOut Successful!");
+        showSuccessPopup(
+          `Cash Out successfully. Please check Transactions for details.`,
+        );
         return;
       } else {
         alert("Invalid Pin");
