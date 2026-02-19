@@ -6,11 +6,7 @@ document.getElementById("add-money").addEventListener("click", () => {
   let currentBalance = getCurrentBalance();
   let newBalance = Number(addAmount) + currentBalance;
   let pin = getInputValue("pinNumber-add-money");
-  const time = new Date().toLocaleTimeString("en-GB", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  });
+  const time = getCurrentTime();
   console.log(time);
   if (selectedBank === "Select Bank") {
     alert("Please select a bank method!");

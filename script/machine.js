@@ -26,13 +26,17 @@ function showOnly(id) {
   let cashout = document.getElementById("cashOut-section");
   let addMoney = document.getElementById("add-money-section");
   let transition = document.getElementById("transition-section");
+  let transfer = document.getElementById("transfer-money-section");
   cashout.classList.add("hidden");
   addMoney.classList.add("hidden");
   transition.classList.add("hidden");
+  transfer.classList.add("hidden");
 
   let selected = document.getElementById(id);
   selected.classList.remove("hidden");
 }
+
+// dialog modal;
 function showSuccessPopup(message) {
   const modal = document.getElementById("my_modal_1");
   document.getElementById("success_title").innerText = "Success";
@@ -42,4 +46,25 @@ function showSuccessPopup(message) {
 
   // optional auto-close
   setTimeout(() => modal.close(), 10000);
+}
+// dialog modal;
+function showSuccessPopupWrong(message) {
+  const modal = document.getElementById("my_modal_1");
+  document.getElementById("success_title").innerText = "Declined";
+  document.getElementById("success_msg").innerText = message;
+
+  modal.showModal();
+
+  // optional auto-close
+  setTimeout(() => modal.close(), 10000);
+}
+
+// time
+function getCurrentTime() {
+  let CurrentTime = new Date().toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+  return CurrentTime;
 }

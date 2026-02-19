@@ -8,12 +8,7 @@ document.getElementById("withdraw-money").addEventListener("click", () => {
   let newBalance = availableValance - amountNumber;
   let pinNumberElement = document.getElementById("pinNumber-cashout");
   let pinNumber = pinNumberElement.value;
-
-  const time = new Date().toLocaleTimeString("en-GB", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  });
+  const time = getCurrentTime();
 
   if (agentNumber.length != 11) {
     alert("Invalid agent Number");
