@@ -3,9 +3,9 @@ document.getElementById("add-money").addEventListener("click", () => {
   let bankNumber = getInputValue("bank-account-number");
   let bankNumber1 = Number(getInputValue("bank-account-number"));
   const last4 = bankNumber.slice(-4);
-  let addAmount = getInputValue("add-amount");
+  let addAmount = Number(getInputValue("add-amount"));
   let currentBalance = getCurrentBalance();
-  let newBalance = Number(addAmount) + currentBalance;
+  let newBalance = addAmount + currentBalance;
   let pin = getInputValue("pinNumber-add-money");
   const time = getCurrentTime();
   console.log(time);
@@ -27,15 +27,15 @@ document.getElementById("add-money").addEventListener("click", () => {
         `);
         return;
       } else {
-        if (!newBalance) {
+        if (!addAmount) {
           showSuccessPopupWrong(`
         Invalid Amount
         `);
         } else {
-          if (newBalance && pin === "1234") {
+          if (addAmount && pin === "1234") {
             showSuccessPopupPending();
             setTimeout(() => {
-              if (newBalance < 0) {
+              if (addAmount > 10000) {
                 showSuccessPopupDeclined(`
                 Payment declined. See more details in Transactions.
                 `);
@@ -50,7 +50,7 @@ document.getElementById("add-money").addEventListener("click", () => {
                       Declined 
                   </div>
                 <div class="collapse-content text-sm">
-                    Top-up failed: your balance is too low. Please add $${Math.abs(newBalance)} and try again. Date: ${new Date()}.
+                    Top-up failed: You can not top up more than $10,000 Date: ${new Date()}.
                   </div>
 
                   
@@ -63,7 +63,7 @@ document.getElementById("add-money").addEventListener("click", () => {
                 // );
                 return;
               } else {
-                if (newBalance >= 0 && pin === "1234") {
+                if (addAmount <= 10000 && pin === "1234") {
                   setBalance(newBalance);
                   showSuccessPopup(
                     `Top-up successful. $${addAmount} added. View Transactions for details.`,

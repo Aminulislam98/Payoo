@@ -20,12 +20,12 @@ document.getElementById("pay-bill").addEventListener("click", () => {
         The biller account number (${billerAccountNumber}) you entered isn’t valid. Please review it and re-enter the correct number.
         `);
     } else {
-      if (!newBalance) {
+      if (!amount) {
         showSuccessPopupWrong(`
         Invalid Amount
         `);
       } else {
-        if (newBalance && pin === "1234") {
+        if (amount && pin === "1234") {
           showSuccessPopupPending("");
           setTimeout(() => {
             if (newBalance < 0) {
