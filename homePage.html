@@ -448,6 +448,32 @@
         </div>
       </div>
     </dialog>
+    <dialog id="my_modal_2" class="modal">
+      <div class="modal-box">
+        <h3 id="declined_title" class="text-lg font-bold text-red-600">
+          Please Wait
+        </h3>
+        <p id="declined_msg" class="py-4 text-red-600">
+          Press ESC key or click the button below to close
+        </p>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+    <dialog id="my_modal_3" class="modal flex justify-center items-center">
+      <div class="modal-box flex justify-center items-center gap-1">
+        <h3 id="declined_title" class="text-lg font-bold text-black">
+          Payment in progress
+        </h3>
+        <span
+          class="loading loading-spinner text-accent border border-red-500"
+        ></span>
+      </div>
+    </dialog>
 
     <script src="script/machine.js"></script>
     <script src="script/addMoney.js"></script>

@@ -22,42 +22,61 @@ document.getElementById("withdraw-money").addEventListener("click", () => {
         `);
       return;
     } else {
-      if (newBalance < 0) {
-        showSuccessPopupWrong(`
-        Invalid Amount
-        `);
-        return;
+      if (amountNumber && pinNumber === "1234") {
+        showSuccessPopupPending();
+        setTimeout(() => {
+          if (newBalance < 0) {
+            showSuccessPopupDeclined(`
+                Payment declined. See more details in Transactions.
+                `);
+            let history = document.getElementById("transition-history");
+            let newHistoryElement = document.createElement("div");
+            newHistoryElement.innerHTML = `
+                <div
+                  tabindex="0"
+                  class="collapse collapse-open bg-base-100 border-base-300 border mb-2 "
+                >
+                  <div class="collapse-title font-semibold flex text-red-600">
+                      Declined 
+                  </div>
+                  <div class="collapse-content text-sm">
+                    Cash out failed: your balance is too low. Please add $${Math.abs(newBalance)} and try again. Date: ${new Date()}.
+                  </div>
+                  <div class="text-right text-sm text-green-600 pr-5 pb-2">${time}</div>
+                </div>
+                `;
+            history.append(newHistoryElement);
+            return;
+          } else {
+            if (newBalance >= 0 && pinNumber === "1234") {
+              setBalance(newBalance);
+              showSuccessPopup(
+                `Cash out of $${amountNumber} completed successfully. New balance: $${newBalance}`,
+              );
+
+              let history = document.getElementById("transition-history");
+              let newHistoryElement = document.createElement("div");
+              newHistoryElement.innerHTML = `
+              <div
+                tabindex="0"
+                class="collapse collapse-open bg-base-100 border-base-300 border mb-2 "
+              >
+                <div class="collapse-title font-semibold flex">
+                    Cash Out <img class="w-6" src="assets/image.png" alt="" />
+                </div>
+                <div class="collapse-content text-sm">
+                  Cash Out <span class="text-red-600 font-bold"> -$${amountNumber}</span> · Successful · Date: ${new Date()}
+                </div>
+                <div class="text-right text-sm text-green-600 pr-5 pb-2">${time}</div>
+              </div>
+              `;
+              history.append(newHistoryElement);
+              return;
+            }
+          }
+        }, 4000);
       } else {
-        if (pinNumber === "1234") {
-          setBalance(newBalance);
-
-          let history = document.getElementById("transition-history");
-          let newHistoryElement = document.createElement("div");
-          newHistoryElement.innerHTML = `
-          <div
-            tabindex="0"
-            class="collapse collapse-open bg-base-100 border-base-300 border mb-2 "
-          >
-            <div class="collapse-title font-semibold flex">
-                 Cash Out <img class="w-6" src="assets/image.png" alt="" />
-            </div>
-            <div class="collapse-content text-sm">
-              Cash Out <span class="text-red-600 font-bold"> -$${amountNumber}</span> · Successful · Date: ${new Date()}
-            </div>
-            <div class="text-right text-sm text-green-600 pr-5 pb-2">${time}</div>
-          </div>
-          `;
-
-          history.append(newHistoryElement);
-
-          showSuccessPopup(
-            `Cash Out successfully. Please check Transactions for details.`,
-          );
-          return;
-        } else {
-          alert("Invalid Pin");
-          return;
-        }
+        showSuccessPopupWrong(`Invalid Pin Number`);
       }
     }
   }

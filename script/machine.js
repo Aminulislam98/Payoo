@@ -62,6 +62,28 @@ function showSuccessPopupWrong(message) {
   // optional auto-close
   setTimeout(() => modal.close(), 10000);
 }
+// dialog modal wrong;
+function showSuccessPopupDeclined(message) {
+  const modal = document.getElementById("my_modal_2");
+  document.getElementById("declined_title").innerText = "Declined";
+  document.getElementById("declined_msg").innerText = message;
+
+  modal.showModal();
+
+  // optional auto-close
+  setTimeout(() => modal.close(), 3998);
+}
+// dialog modal wrong;
+function showSuccessPopupPending() {
+  const modal = document.getElementById("my_modal_3");
+  document.getElementById("declined_title").innerText = "Payment in progress…";
+  // document.getElementById("pending_msg").innerText = message;
+
+  modal.showModal();
+
+  // optional auto-close
+  setTimeout(() => modal.close(), 3998);
+}
 
 // time
 function getCurrentTime() {

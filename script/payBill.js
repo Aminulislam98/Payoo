@@ -25,33 +25,59 @@ document.getElementById("pay-bill").addEventListener("click", () => {
         Invalid Amount
         `);
       } else {
-        if (newBalance < 0) {
-          showSuccessPopupWrong(`
-        Insufficient balance. You need an additional $${Math.abs(newBalance)} to complete this transaction.
-        `);
+        if (newBalance && pin === "1234") {
+          showSuccessPopupPending("");
+          setTimeout(() => {
+            if (newBalance < 0) {
+              showSuccessPopupDeclined(`
+                Payment declined. See more details in Transactions.
+                `);
+
+              let history = document.getElementById("transition-history");
+              let newHistoryElement = document.createElement("div");
+              newHistoryElement.innerHTML = `
+                <div
+                  tabindex="0"
+                  class="collapse collapse-open bg-base-100 border-base-300 border mb-2 "
+                >
+                  <div class="collapse-title font-semibold flex text-red-600">
+                      Declined 
+                  </div>
+                  <div class="collapse-content text-sm">
+                    Pay Bill failed: Insufficient balance. You need an additional $${Math.abs(newBalance)} to complete this transaction.
+                  </div>
+                  <div class="text-right text-sm text-green-600 pr-5 pb-2">${time}</div>
+                </div>
+                `;
+              history.append(newHistoryElement);
+              return;
+            } else {
+              if (newBalance >= 0 && pin === "1234") {
+                setBalance(newBalance);
+                showSuccessPopup(`Bill paid successfully. Thank you.`);
+                //   setting transaction
+                let history = document.getElementById("transition-history");
+                let newHistoryElement = document.createElement("div");
+                newHistoryElement.innerHTML = `
+                  <div
+                    tabindex="0"
+                    class="collapse collapse-open bg-base-100 border-base-300 border mb-2 "
+                  >
+                    <div class="collapse-title font-semibold flex">
+                        Bill Payment Confirmed <img class="w-6" src="assets/image.png" alt="" />
+                    </div>
+                    <div class="collapse-content text-sm">
+                        Your bill payment was completed successfully. Account Name: ${selectBank}. Biller Account Number: ${billerAccountNumber}. Date: ${new Date()}
+                    </div>
+                    <div class="text-right text-sm text-green-600 pr-5 pb-2">${time}</div>
+                  </div>
+                  `;
+                history.append(newHistoryElement);
+              }
+            }
+          }, 4000);
         } else {
-          if (pin === "1234") {
-            setBalance(newBalance);
-            showSuccessPopup(`Bill paid successfully. Thank you.`);
-            //   setting transaction
-            let history = document.getElementById("transition-history");
-            let newHistoryElement = document.createElement("div");
-            newHistoryElement.innerHTML = `
-          <div
-            tabindex="0"
-            class="collapse collapse-open bg-base-100 border-base-300 border mb-2 "
-          >
-            <div class="collapse-title font-semibold flex">
-                Bill Payment Confirmed <img class="w-6" src="assets/image.png" alt="" />
-            </div>
-            <div class="collapse-content text-sm">
-                Your bill payment was completed successfully. Account Name: ${selectBank}. Biller Account Number: ${billerAccountNumber}. Date: ${new Date()}
-            </div>
-            <div class="text-right text-sm text-green-600 pr-5 pb-2">${time}</div>
-          </div>
-          `;
-            history.append(newHistoryElement);
-          }
+          showSuccessPopupWrong(`Invalid Pin Number`);
         }
       }
     }
