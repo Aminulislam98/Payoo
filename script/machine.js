@@ -13,7 +13,7 @@ function amountInput() {
 
 function setBalance(value) {
   let currentAvailableBalance = document.getElementById("available-balance");
-  currentAvailableBalance.innerText = value;
+  currentAvailableBalance.innerText = Number(value.toFixed(2));
 }
 // getInputValue
 function getInputValue(value) {
