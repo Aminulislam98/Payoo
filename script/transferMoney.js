@@ -8,7 +8,7 @@ document.getElementById("send-money-transfer").addEventListener("click", () => {
   let time = getCurrentTime();
 
   let currentBalance = getCurrentBalance();
-  console.log(currentBalance);
+  console.log(typeof currentBalance);
 
   let newBalance = currentBalance - amount;
   if (!name) {
@@ -23,10 +23,10 @@ document.getElementById("send-money-transfer").addEventListener("click", () => {
         showSuccessPopupWrong(`Invalid Account Number`);
         return;
       } else {
-        if (!newBalance) {
+        if (!amount) {
           showSuccessPopupWrong(`The amount is not valid`);
         } else {
-          if (newBalance && pin === "1234") {
+          if (amount && pin === "1234") {
             showSuccessPopupPending();
             setTimeout(() => {
               // code you want to run after 4 seconds
